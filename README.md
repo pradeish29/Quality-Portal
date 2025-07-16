@@ -47,9 +47,3 @@ A modern and intuitive **Quality Management Portal** built using **SAP UI5** wit
 <img width="1366" height="728" alt="image (4)" src="https://github.com/user-attachments/assets/b72080da-de43-4ce8-bccc-a606c571be27" />
 
 ---
-
-## 📄 License
-
-MIT License © 2025 [Pradeish Mishra](https://github.com/pradeish29)
-
----
