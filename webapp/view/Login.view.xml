@@ -1,0 +1,14 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc"
+          xmlns="sap.m"
+          controllerName="ZQUALITY_PM.controller.Login">
+  <Page title="Quality Portal Login">
+    <content>
+      <VBox class="sapUiSmallMargin" alignItems="Center" justifyContent="Center">
+        <Input id="empIdInput" placeholder="Employee ID" />
+        <Input id="passwordInput" placeholder="Password" type="Password" />
+        <Button text="Login" press="onLoginPress" type="Emphasized" />
+        <Text id="messageText" text="" visible="false" />
+      </VBox>
+    </content>
+  </Page>
+</mvc:View>

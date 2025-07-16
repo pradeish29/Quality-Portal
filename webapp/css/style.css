@@ -1,0 +1,176 @@
+/* ===================== CUSTOM THEME SUPPORT ===================== */
+/* SAPUI5 handles dark/light mode via theme classes like sap_fiori_3_dark, so no :root hacks needed */
+
+html, body, .sapUiBody {
+  font-family: "72", "Arial", sans-serif;
+  background-color: @sapBackgroundColor;
+  color: @sapTextColor;
+}
+
+.sapMShellCentralBox {
+    max-width: 100vw !important;
+    width: 100vw !important;
+    min-width: 100vw !important;
+    box-shadow: none !important;
+    border: none !important;
+    background: transparent !important;
+    left: 0 !important;
+    right: 0 !important;
+    position: absolute !important;
+    top: 0 !important;
+    bottom: 0 !important;
+    height: 100vh !important;
+    min-height: 100vh !important;
+    margin: 0 auto !important;
+}
+/* Accent Orange */
+:root {
+  --accent-color: #e67817;
+  --accent-color-hover: #cc620f;
+}
+
+/* ===================== HEADER BAR ===================== */
+.header-bar {
+  background-color: @sapTile_Background;
+  border-bottom: 1px solid @sapTile_BorderColor;
+  padding: 1.2rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-bar .sapMTitle {
+  color: var(--accent-color);
+  font-size: 1.8rem !important;
+  font-weight: 700;
+}
+
+/* ===================== GENERIC TILES ===================== */
+.sapMGenericTile {
+  width: 260px;
+  height: 140px;
+  background: @sapTile_Background;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  border-radius: 12px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.sapMGenericTile:hover {
+  transform: scale(1.03);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.sapMGT.OneByOne .sapMGTContent {
+  justify-content: center;
+  align-items: center;
+}
+
+/* ===================== BUTTONS ===================== */
+.sapMBtnEmphasized {
+  background-color: var(--accent-color) !important;
+  color: white !important;
+  font-weight: bold;
+  transition: background-color 0.2s;
+}
+
+.sapMBtnEmphasized:hover {
+  background-color: var(--accent-color-hover) !important;
+}
+
+.sapMBtnReject {
+  background-color: @sapNegativeElementColor !important;
+  color: white !important;
+}
+
+/* ===================== INPUTS ===================== */
+.sapMInputBase {
+  margin-bottom: 1rem;
+  max-width: 400px;
+}
+
+input.sapMInputBaseInner {
+  border: 1px solid @sapField_BorderColor;
+  border-radius: 6px;
+  background-color: @sapField_Background;
+  color: @sapTextColor;
+}
+
+/* ===================== TABLES ===================== */
+.sapMTable {
+  background-color: @sapList_Background;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+  padding: 1rem;
+}
+
+.sapMColumn {
+  font-weight: bold;
+  color: @sapTextColor;
+}
+
+.sapMListTblCell > .sapMText {
+  font-size: 0.95rem;
+  color: @sapTextColor;
+}
+
+/* ===================== OBJECT STATUS ===================== */
+.sapMObjectStatusSuccess {
+  color: @sapPositiveElementColor !important;
+}
+
+.sapMObjectStatusError {
+  color: @sapNegativeElementColor !important;
+}
+
+.sapMObjectStatusWarning {
+  color: @sapCriticalElementColor !important;
+}
+
+/* ===================== LOGIN PAGE ===================== */
+#empIdInput, #passwordInput {
+  max-width: 400px;
+  width: 100%;
+}
+
+#messageText {
+  margin-top: 0.5rem;
+  color: red;
+  font-size: 0.9rem;
+}
+
+/* ===================== RESPONSIVE FLEX LAYOUTS ===================== */
+.sapUiSmallMargin,
+.sapUiMediumMarginBottom {
+  margin-bottom: 1.5rem !important;
+}
+
+.sapUiSmallMarginStart,
+.sapUiSmallMarginEnd {
+  margin-inline: 1rem;
+}
+
+/* ===================== COMPACT MODE ===================== */
+@media only screen and (max-width: 768px) {
+  .sapMGenericTile {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  .sapMInputBase {
+    width: 100%;
+  }
+
+  .sapMTable {
+    padding: 0.5rem;
+  }
+
+  .header-bar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .header-bar .sapMTitle {
+    font-size: 1.5rem !important;
+    margin-bottom: 0.5rem;
+  }
+}

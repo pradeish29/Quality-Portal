@@ -1,0 +1,45 @@
+<mvc:View controllerName="ZQUALITY_PM.controller.Inspection" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:core="sap.ui.core">
+	<Page title="Quality Inspection Lots" showNavButton="true" navButtonPress="onNavBack">
+		<content>
+			<VBox class="sapUiSmallMargin">
+				<!-- Status Filter -->
+				<HBox>
+					<Text text="Filter by Status:" class="sapUiTinyMarginEnd"/>
+					<Select id="approvalFilter" change="onFilterChange">
+						<items>
+							<core:Item key="" text="All"/>
+							<core:Item key="A" text="Approved"/>
+							<core:Item key="R" text="Rejected"/>
+							<core:Item key="P" text="Yet to Decide"/>
+						</items>
+					</Select>
+				</HBox>
+				<!-- Inspection Table -->
+				<Table id="inspectionTable" items="{inspectionModel>/results}" growing="true" growingScrollToLoad="true" growingThreshold="20">
+					<columns>
+						<Column><Text text="Inspection Lot ID"/></Column>
+						<Column><Text text="Material Number"/></Column>
+						<Column><Text text="Plant"/></Column>
+						<Column><Text text="Quantity"/></Column>
+						<Column><Text text="Start Date"/></Column>
+						<Column><Text text="End Date"/></Column>
+						<Column><Text text="Approval Status"/></Column>
+					</columns>
+					<items>
+						<ColumnListItem>
+							<cells>
+								<Text text="{inspectionModel>InspectionLotID}"/>
+								<Text text="{inspectionModel>MaterialNumber}"/>
+								<Text text="{inspectionModel>Plant}"/>
+								<Text text="{inspectionModel>LotQuantity}"/>
+								<Text text="{path: 'inspectionModel>PlannedStartDate', formatter: '.formatDate'}"/>
+								<Text text="{path: 'inspectionModel>PlannedEndDate', formatter: '.formatDate'}"/>
+								<ObjectStatus text="{inspectionModel>ApprovalStatus}" state="{path: 'inspectionModel>ApprovalStatus', formatter: '.formatStatus'}"/>
+							</cells>
+						</ColumnListItem>
+					</items>
+				</Table>
+			</VBox>
+		</content>
+	</Page>
+</mvc:View>

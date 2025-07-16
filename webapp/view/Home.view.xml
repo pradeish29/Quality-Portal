@@ -1,0 +1,67 @@
+<mvc:View
+  controllerName="ZQUALITY_PM.controller.Home"
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns="sap.m"
+  xmlns:core="sap.ui.core"
+  displayBlock="true">
+
+  <Page >
+    <VBox class="sapUiSmallMargin">
+
+      <!-- ===== Header Bar ===== -->
+      <HBox justifyContent="SpaceBetween" alignItems="Center" class="sapUiMediumMarginBottom header-bar">
+        <Text text="Quality Management Portal" class="sapMTitle sapUiSmallMarginStart" />
+
+        <HBox alignItems="Center" class="sapUiSmallMarginEnd" renderType="Bare" spacing="Medium">
+          <Text text="{userModel>/name}" class="sapUiTinyMarginEnd sapUiTinyMarginStart" />
+          <Text text="{path: 'userModel>/now', type: 'sap.ui.model.type.Date', formatOptions: { style: 'long' }}" class="sapUiTinyMarginEnd" />
+
+       
+          <Button icon="sap-icon://log" tooltip="Logout" type="Reject" press="onLogout" />
+        </HBox>
+      </HBox>
+
+      <!-- ===== Navigation Tiles ===== -->
+      <FlexBox
+        wrap="Wrap"
+        justifyContent="Center"
+        class="sapUiSmallMargin"
+        direction="Row">
+
+        <GenericTile header="Inspection Lot" press="onNavigate" class="sapUiSmallMargin">
+          <customData>
+            <core:CustomData key="route" value="Inspection" />
+          </customData>
+          <tileContent>
+            <TileContent>
+              <ImageContent src="sap-icon://inspection" />
+            </TileContent>
+          </tileContent>
+        </GenericTile>
+
+        <GenericTile header="Result Records" press="onNavigate" class="sapUiSmallMargin">
+          <customData>
+            <core:CustomData key="route" value="Result" />
+          </customData>
+          <tileContent>
+            <TileContent>
+              <ImageContent src="sap-icon://multi-select" />
+            </TileContent>
+          </tileContent>
+        </GenericTile>
+
+        <GenericTile header="Usage Decision" press="onNavigate" class="sapUiSmallMargin">
+          <customData>
+            <core:CustomData key="route" value="Usage" />
+          </customData>
+          <tileContent>
+            <TileContent>
+              <ImageContent src="sap-icon://decision" />
+            </TileContent>
+          </tileContent>
+        </GenericTile>
+
+      </FlexBox>
+    </VBox>
+  </Page>
+</mvc:View>

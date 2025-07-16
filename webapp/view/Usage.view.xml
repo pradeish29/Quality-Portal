@@ -1,0 +1,67 @@
+<mvc:View
+  controllerName="ZQUALITY_PM.controller.Usage"
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns="sap.m"
+  xmlns:core="sap.ui.core">
+
+  <Page title="Quality Usage Decisions" showNavButton="true" navButtonPress="onNavBack">
+    <content>
+      <VBox class="sapUiSmallMargin">
+
+        <!-- Filter Dropdown -->
+        <HBox class="sapUiSmallMarginBottom">
+          <Text text="Filter by Status:" class="sapUiTinyMarginEnd"/>
+          <Select id="statusFilter" change="onFilterChange" selectedKey="">
+            <items>
+              <core:Item key="" text="All"/>
+              <core:Item key="Approved" text="Approved"/>
+              <core:Item key="Rejected" text="Rejected"/>
+            </items>
+          </Select>
+        </HBox>
+
+        <!-- Table -->
+        <Table
+          id="usageTable"
+          items="{usageModel>/}"
+          growing="true"
+          growingScrollToLoad="true"
+          growingThreshold="20">
+
+          <columns>
+            <Column><Text text="Inspection Lot ID"/></Column>
+            <Column><Text text="Material Number"/></Column>
+            <Column><Text text="Start Date"/></Column>
+            <Column><Text text="End Date"/></Column>
+            <Column><Text text="Inspection Type"/></Column>
+            <Column><Text text="Type Description"/></Column>
+            <Column><Text text="Inspected Qty"/></Column>
+            <Column><Text text="Destroyed Qty"/></Column>
+            <Column><Text text="Quality Score"/></Column>
+            <Column><Text text="Follow-Up"/></Column>
+            <Column><Text text="Status"/></Column>
+          </columns>
+
+          <items>
+            <ColumnListItem>
+              <cells>
+                <Text text="{usageModel>InspectionLotID}"/>
+                <Text text="{usageModel>MaterialNumber}"/>
+                <Text text="{path: 'usageModel>InspectionStartDate', formatter: '.formatDate'}"/>
+                <Text text="{path: 'usageModel>InspectionEndDate', formatter: '.formatDate'}"/>
+                <Text text="{usageModel>InspectionType}"/>
+                <Text text="{usageModel>InspectionTypeText}"/>
+                <Text text="{usageModel>InspectedQuantity}"/>
+                <Text text="{usageModel>DestroyedQuantity}"/>
+                <Text text="{usageModel>QualityScore}"/>
+                <Text text="{usageModel>FollowUpAction}"/>
+                <Text text="{usageModel>UsageDecisionStatus}"/>
+              </cells>
+            </ColumnListItem>
+          </items>
+        </Table>
+
+      </VBox>
+    </content>
+  </Page>
+</mvc:View>
